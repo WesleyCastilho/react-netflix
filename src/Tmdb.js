@@ -1,9 +1,10 @@
-const API_KEY = '7ec84b0fdfb1f5cd3d354468273a7fac'
-const API_BASE = 'https://api.themoviedb.org/3'
-const OPTIONS = `&language=pt-BR&api_key=${API_KEY}`
+const { REACT_APP_API_KEY } = process.env;
+const { REACT_APP_API_BASE } = process.env;
+
+const OPTIONS = `&language=pt-BR&api_key=${REACT_APP_API_KEY}`;
 
 const basicFetch = async (endpoint) => {
-    const req = await fetch(`${API_BASE}${endpoint}`);
+    const req = await fetch(`${REACT_APP_API_BASE}${endpoint}`);
     const json = await req.json();
     return json;
 }
